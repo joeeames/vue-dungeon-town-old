@@ -1,7 +1,7 @@
 <template>
   <div>
     <select v-model="buildingType">
-      <option v-for="building in $store.state.reference.buildings"
+      <option v-for="building in buildings"
         v-bind:value="building.type"
         v-bind:key="building.type">{{ building.name }}</option>
     </select>
@@ -12,12 +12,14 @@
 <script>
 
 import { mapActions } from 'vuex'
+import buildings from './buildingReference'
 
 export default {
   name: 'new-building',
   data: () => {
     return {
-      buildingType: 'inn'
+      buildingType: 'inn',
+      buildings: buildings
     }
   },
   methods: {

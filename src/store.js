@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { buildingInfo } from './building/buildingReference'
+import buildingInfo from './building/buildingReference'
 
 Vue.use(Vuex)
 
@@ -10,20 +10,13 @@ const state = {
     {id: 1, name: 'Inn', type: 'inn', level: 1, incomePerTurn: 20},
     {id: 2, name: 'Blacksmith', type: 'blacksmith', level: 1, incomePerTurn: 10},
     {id: 3, name: 'Lemonade Stand', type: 'lemonade', level: 1, incomePerTurn: 5}
-  ],
-  reference: {
-    buildings: {
-      inn: { type: 'inn', name: 'Inn', incomePerTurn: 20, cost: 150, upgradeCost: 150 },
-      blacksmith: { type: 'blacksmith', name: 'Blacksmith', incomePerTurn: 10, cost: 50, upgradeCost: 50 },
-      lemonadestand: { type: 'lemonadestand', name: 'Lemonade Stand', incomePerTurn: 5, cost: 20, upgradeCost: 15 },
-      temple: { type: 'temple', name: 'Temple', incomePerTurn: 30, cost: 300, upgradeCost: 250 }
-    }
-  }
+  ]
 }
 
 const mutations = {
   addTurnIncome (state) {
-    buildingInfo.
+    let b = buildingInfo
+    console.log(b)
     let income = state.buildings.reduce((acc, bldg) => bldg.incomePerTurn + acc, 0)
     state.gold += income
   }
