@@ -6,7 +6,8 @@ export default {
     upgradeCost:150,
     calculateIncome () {
       return 20
-    }
+    },
+    rooms: 4
   },
   blacksmith: { 
     type: 'blacksmith',

@@ -27,13 +27,13 @@ export default {
       'addProductToCart'
     ]),
     build () {
-      let cost = this.$store.state.reference.buildings[this.buildingType].cost
+      let cost = this.buildings[this.buildingType].cost
       console.log(this.buildingType, cost)
 
-      if (cost <= this.$state.gold) {
-        this.$store.dispatch('buyBuilding', this.buildingType)
+      if (cost <= this.$store.state.gold) {
+        this.$store.dispatch('buyBuilding', this.buildingType);
       } else {
-        // not enuf $
+        this.$store.dispatch('failedBuyBuildingAttempt', this.buildingType);
       }
     }
   }
